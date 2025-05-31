@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAWS - Help Stray Animals</title>
+    <!-- Add Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <!-- Add Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span>PAWS</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#map">Reports</a>
+                <a href="#adoption">Adopt</a>
+                <a href="#awareness">Tips</a>
+                <div class="theme-switcher">
+                    <button class="theme-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span>Theme</span>
+                    </button>
+                    <div class="theme-dropdown">
+                        <button data-theme="light" class="theme-option">
+                            <i class="fas fa-sun"></i> Light
+                        </button>
+                        <button data-theme="dark" class="theme-option">
+                            <i class="fas fa-moon"></i> Dark
+                        </button>
+                        <button data-theme="nature" class="theme-option">
+                            <i class="fas fa-leaf"></i> Nature
+                        </button>
+                        <button data-theme="ocean" class="theme-option">
+                            <i class="fas fa-water"></i> Ocean
+                        </button>
+                        <button data-theme="sunset" class="theme-option">
+                            <i class="fas fa-sunset"></i> Sunset
+                        </button>
+                    </div>
+                </div>
+                <button class="btn primary">Report Now</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#features">Features</a>
+        <a href="#map">Reports</a>
+        <a href="#adoption">Adopt</a>
+        <a href="#awareness">Tips</a>
+        <button class="btn primary">Report Now</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>PAWS – Help Stray Animals</h1>
+                <p>Use the power of AI and community to rescue, report, and support stray animals.</p>
+                <div class="cta-buttons">
+                    <button class="btn primary">Report Now</button>
+                    <button class="btn secondary">Join as Volunteer</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42" alt="Stray dog">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" data-feature="ai-detection">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Detection</h3>
+                    <p>Identify injured or sick animals using images</p>
+                    <button class="btn primary feature-btn">Learn More</button>
+                    <div class="feature-details">
+                        <div class="feature-details-content">
+                            <h4>How AI Detection Works</h4>
+                            <ul>
+                                <li>Upload photos of stray animals</li>
+                                <li>AI analyzes health conditions</li>
+                                <li>Get instant health assessment</li>
+                                <li>Receive care recommendations</li>
+                                <li>Track animal recovery progress</li>
+                                <li>Connect with veterinary experts</li>
+                                <li>Share reports with local shelters</li>
+                                <li>Get treatment suggestions</li>
+                            </ul>
+                        </div>
+                        <div class="feature-details-footer">
+                            <button class="btn secondary try-feature-btn">Try Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-feature="geo-tag">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Geo-Tag Reporting</h3>
+                    <p>Report animals with live location</p>
+                    <button class="btn primary feature-btn">Learn More</button>
+                    <div class="feature-details">
+                        <div class="feature-details-content">
+                            <h4>Location Reporting Features</h4>
+                            <ul>
+                                <li>Precise GPS location tracking</li>
+                                <li>Area-based notifications</li>
+                                <li>Real-time location sharing</li>
+                                <li>Nearby shelter alerts</li>
+                                <li>Route planning for rescuers</li>
+                                <li>Location history tracking</li>
+                                <li>Hotspot identification</li>
+                                <li>Emergency response coordination</li>
+                            </ul>
+                        </div>
+                        <div class="feature-details-footer">
+                            <button class="btn secondary try-feature-btn">Report Location</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-feature="ngo-connect">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>NGO Connect</h3>
+                    <p>Get help from nearby shelters or vets</p>
+                    <button class="btn primary feature-btn">Learn More</button>
+                    <div class="feature-details">
+                        <div class="feature-details-content">
+                            <h4>NGO Network Benefits</h4>
+                            <ul>
+                                <li>Connect with local shelters</li>
+                                <li>Find nearest veterinarians</li>
+                                <li>Emergency response network</li>
+                                <li>Volunteer opportunities</li>
+                                <li>Donation tracking system</li>
+                                <li>Resource sharing network</li>
+                                <li>Event coordination</li>
+                                <li>Training programs</li>
+                            </ul>
+                        </div>
+                        <div class="feature-details-footer">
+                            <button class="btn secondary try-feature-btn">Find NGOs</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-feature="foster-adopt">
+                    <i class="fas fa-home"></i>
+                    <h3>Foster/Adopt</h3>
+                    <p>Give stray animals a loving home</p>
+                    <button class="btn primary feature-btn">Learn More</button>
+                    <div class="feature-details">
+                        <div class="feature-details-content">
+                            <h4>Adoption Process</h4>
+                            <ul>
+                                <li>Browse available pets</li>
+                                <li>Schedule meet & greet</li>
+                                <li>Home environment check</li>
+                                <li>Post-adoption support</li>
+                                <li>Foster care training</li>
+                                <li>Pet care resources</li>
+                                <li>Behavioral guidance</li>
+                                <li>Regular checkup reminders</li>
+                            </ul>
+                        </div>
+                        <div class="feature-details-footer">
+                            <button class="btn secondary try-feature-btn">Start Process</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map" id="map">
+        <div class="container">
+            <h2>Live Animal Reports</h2>
+            <p>See real-time stray animal reports in your area</p>
+            <div class="reports-container">
+                <div class="map-container">
+                    <div id="map-placeholder">
+                        <p>Google Maps will be integrated here</p>
+                    </div>
+                </div>
+                <div class="reports-list">
+                    <div class="reports-header">
+                        <h3>Recent Reports</h3>
+                        <button class="btn primary small">New Report</button>
+                    </div>
+                    <div class="reports-scroll">
+                        <div class="report-card">
+                            <div class="report-image">
+                                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Reported Animal">
+                            </div>
+                            <div class="report-content">
+                                <span class="report-status urgent">Urgent</span>
+                                <h4>Injured Dog Found</h4>
+                                <p class="report-location"><i class="fas fa-map-marker-alt"></i> Central Park, Block A</p>
+                                <p class="report-time"><i class="fas fa-clock"></i> 2 hours ago</p>
+                                <p class="report-description">Medium-sized brown dog with injured paw, needs immediate attention.</p>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-image">
+                                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Reported Animal">
+                            </div>
+                            <div class="report-content">
+                                <span class="report-status">New</span>
+                                <h4>Stray Puppies</h4>
+                                <p class="report-location"><i class="fas fa-map-marker-alt"></i> Downtown, Market Street</p>
+                                <p class="report-time"><i class="fas fa-clock"></i> 5 hours ago</p>
+                                <p class="report-description">Three puppies found near the market, seem healthy but hungry.</p>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-image">
+                                <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="Reported Animal">
+                            </div>
+                            <div class="report-content">
+                                <span class="report-status in-progress">In Progress</span>
+                                <h4>Cat Family Needs Home</h4>
+                                <p class="report-location"><i class="fas fa-map-marker-alt"></i> Riverside Park</p>
+                                <p class="report-time"><i class="fas fa-clock"></i> 1 day ago</p>
+                                <p class="report-description">Mother cat with kittens found in park. Local shelter contacted.</p>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-image">
+                                <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42" alt="Reported Animal">
+                            </div>
+                            <div class="report-content">
+                                <span class="report-status resolved">Resolved</span>
+                                <h4>Senior Dog Rescued</h4>
+                                <p class="report-location"><i class="fas fa-map-marker-alt"></i> East Side, Main Road</p>
+                                <p class="report-time"><i class="fas fa-clock"></i> 2 days ago</p>
+                                <p class="report-description">Elderly dog successfully rescued and taken to vet for checkup.</p>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Gallery -->
+    <section class="adoption">
+        <div class="container">
+            <h2>Adoption Gallery</h2>
+            <div class="adoption-grid">
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Max">
+                    <div class="card-content">
+                        <h3>Max</h3>
+                        <span class="badge available">Available</span>
+                        <button class="btn primary small">Adopt Now</button>
+                    </div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Rocky">
+                    <div class="card-content">
+                        <h3>Rocky</h3>
+                        <span class="badge available">Available</span>
+                        <button class="btn primary small">Adopt Now</button>
+                    </div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="Bella">
+                    <div class="card-content">
+                        <h3>Bella</h3>
+                        <span class="badge adopted">Adopted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awareness Section -->
+    <section class="awareness">
+        <div class="container">
+            <h2>Awareness & Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>How to Help Injured Dogs</h3>
+                    <p>Learn the essential first aid steps to help injured stray dogs. Know when to call professionals and how to safely approach injured animals. Always maintain a safe distance initially and look for signs of aggression or fear.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>What to Feed Strays</h3>
+                    <p>Discover safe and nutritious food options for stray animals. Learn what foods to avoid and how to provide proper nourishment. Remember to always provide fresh water along with food, and maintain regular feeding schedules if possible.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Creating Safe Spaces</h3>
+                    <p>Tips on creating temporary shelters and safe spaces for stray animals in your community, especially during extreme weather. Learn about using readily available materials to create weather-resistant shelters.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Emergency Response Guide</h3>
+                    <p>Quick guide on what to do when you find an injured or distressed animal. Learn about emergency contacts, temporary care procedures, and how to transport injured animals safely to veterinary facilities.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Community Involvement</h3>
+                    <p>Ways to engage your local community in stray animal welfare. Organize feeding programs, create awareness campaigns, and build a network of animal welfare supporters in your neighborhood.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Winter Care Tips</h3>
+                    <p>Special considerations for helping stray animals during cold weather. Learn about creating warm shelters, providing appropriate food, and ensuring water doesn't freeze.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Summer Protection</h3>
+                    <p>Guidelines for protecting strays during hot weather. Tips include providing shade, ensuring constant water availability, and recognizing signs of heat stress in animals.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Vaccination Awareness</h3>
+                    <p>Understanding the importance of vaccinations for stray animals. Learn about common diseases, vaccination schedules, and how to coordinate with local vets for vaccination drives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="brand">
+                    <h3>PAWS</h3>
+                    <p>Helping stray animals find their forever homes</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Report Animal</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> help@pawsrescue.org</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rescue Street, City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PAWS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Report a Stray Animal</h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="animalType">Animal Type</label>
+                    <select id="animalType" required>
+                        <option value="">Select animal type</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group location-input">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Click on map to set location or use current location" required>
+                    <i class="fas fa-map-marker-alt location-pin" id="useCurrentLocation" title="Use current location"></i>
+                    <div class="location-help">
+                        <small>Click on the map to set a location or use the location pin for current position</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Describe the animal and its condition" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency Level</label>
+                    <select id="urgency" required>
+                        <option value="normal">Normal</option>
+                        <option value="urgent">Urgent - Immediate Attention Needed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo (optional)</label>
+                    <input type="file" id="photo" accept="image/*">
+                    <div class="photo-preview" id="photoPreview"></div>
+                </div>
+                <button type="submit" class="btn primary">Submit Report</button>
+            </form>
+            <div class="success-message">Report submitted successfully! We'll process it right away.</div>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div class="modal" id="volunteerModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Join as Volunteer</h2>
+            <form id="volunteerForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability">Availability</label>
+                    <select id="availability" required>
+                        <option value="">Select availability</option>
+                        <option value="weekdays">Weekdays</option>
+                        <option value="weekends">Weekends</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Previous Experience</label>
+                    <textarea id="experience" placeholder="Tell us about your experience with animals"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Submit Application</button>
+            </form>
+            <div class="success-message">Thank you for volunteering! We'll contact you soon.</div>
+        </div>
+    </div>
+
+    <!-- Adopt Modal -->
+    <div class="modal" id="adoptModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Adopt a Pet</h2>
+            <form id="adoptForm">
+                <div class="form-group">
+                    <label for="adopter-name">Full Name</label>
+                    <input type="text" id="adopter-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="adopter-email">Email</label>
+                    <input type="email" id="adopter-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="adopter-phone">Phone</label>
+                    <input type="tel" id="adopter-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="home-type">Home Type</label>
+                    <select id="home-type" required>
+                        <option value="">Select home type</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-experience">Pet Experience</label>
+                    <textarea id="pet-experience" placeholder="Tell us about your experience with pets"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Submit Adoption Request</button>
+            </form>
+            <div class="success-message">Thank you for your interest in adoption! We'll review your application and contact you soon.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
